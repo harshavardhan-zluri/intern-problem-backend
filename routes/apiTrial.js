@@ -32,7 +32,9 @@ router.post('/', async (req, res) => {
     for(i=0;i<req.body.length;i++){
         const expense = new Expense({
             description: req.body[i].description,
-            amount: req.body[i].amount
+            amount: req.body[i].amount,
+            date: req.body[i].date,
+            currency: req.body[i].currency
         })
     
         try{
@@ -56,6 +58,12 @@ router.patch('/:id', getExpense, async (req, res) => {
     }
     if (req.body.amount != null){
         res.expense.amount = req.body.amount
+    }
+    if (req.body.date != null){
+        res.expense.date = req.body.date
+    }
+    if (req.body.currency != null){
+        res.expense.currency = req.body.currency
     }
     try{
         const updatedExpense = await res.expense.save()

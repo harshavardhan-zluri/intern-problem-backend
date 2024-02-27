@@ -1,6 +1,11 @@
 [
   {
-    "description": "Test Transaction 3",
-    "amount": "3"
+    "description": "Test Transaction 5",
+    "amount": "4"
+  },
+  {
+    "description": "Test Transaction 6",
+    "amount": "9",
+    "date":"2015-05-22T00:00:00.000Z"
   }
 ]
