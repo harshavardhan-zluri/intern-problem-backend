@@ -1,11 +1,12 @@
-require('dotenv').config()
-const express = require('express')
-const cors = require('cors')
+import dotenv from "dotenv"
+dotenv.config()
+import express from 'express'
+import cors  from 'cors'
 
 const app = express()
 app.use(cors());
 
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 mongoose.connect(process.env.DATABASE_URL)
 
@@ -18,8 +19,9 @@ db.once('open', () => console.log('Connected to Database'))
 
 app.use(express.json())
 
-const trialRouter = require('./routes/apiTrial')
-app.use('/apiTrial', trialRouter)
+// const trialRouter = require('./routes/apiTrial')
+import router from './routes/apiTrial.js'
+app.use('/apiTrial', router)
 
 
 app.listen(3000, () => console.log("Server Started"))
